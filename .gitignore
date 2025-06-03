@@ -1,0 +1,7 @@
+# Ignore Python virtual environment folders
+venv/
+backend/todo_api/venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
