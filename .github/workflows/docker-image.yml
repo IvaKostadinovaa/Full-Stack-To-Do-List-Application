@@ -21,8 +21,8 @@ jobs:
     - name: Build and push backend image
       uses: docker/build-push-action@v5
       with:
-        context: ./backend
-        file: ./backend/Dockerfile
+        context: ./backend/todo_api
+        file: ./backend/todo_api/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest
 
