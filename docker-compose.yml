@@ -14,7 +14,7 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend/todo_api
+    image: ivakostadinova/full-stack-to-do-list-application:backend-latest
     command: >
       sh -c "python manage.py migrate &&
              gunicorn todo_api.wsgi:application --bind 0.0.0.0:8000"
@@ -32,7 +32,7 @@ services:
       DB_PORT: 5432
 
   frontend:
-    build: ./frontend
+    image: ivakostadinova/full-stack-to-do-list-application:frontend-latest
     ports:
       - "3000:80"
     depends_on:
