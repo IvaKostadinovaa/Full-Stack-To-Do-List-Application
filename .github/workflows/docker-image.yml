@@ -24,8 +24,7 @@ jobs:
         context: ./backend/todo_api
         file: ./backend/todo_api/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/full-stack-to-do-list:frontend-latest
-
+        tags: ${{ secrets.DOCKER_USERNAME }}/full-stack-to-do-list-application-backend:latest
 
     - name: Build and push frontend image
       uses: docker/build-push-action@v5
@@ -33,5 +32,4 @@ jobs:
         context: ./frontend
         file: ./frontend/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/full-stack-to-do-list:frontend-latest
-
+        tags: ${{ secrets.DOCKER_USERNAME }}/full-stack-to-do-list-application-frontend:latest
