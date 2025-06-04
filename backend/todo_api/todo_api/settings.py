@@ -98,15 +98,23 @@ WSGI_APPLICATION = 'todo_api.wsgi.application'
 
 import os
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME', 'todo_db'),
+#         'USER': os.getenv('DB_USER', 'todo_user'),
+#         'PASSWORD': os.getenv('DB_PASSWORD', 'todo_password'),
+#         'HOST': os.getenv('DB_HOST', 'localhost'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
+#     }
+# }
+
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'todo_db'),
-        'USER': os.getenv('DB_USER', 'todo_user'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'todo_password'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    'default': dj_database_url.config(
+        default='postgres://todo_user:todo_password@localhost:5432/todo_db'
+    )
 }
 
 
