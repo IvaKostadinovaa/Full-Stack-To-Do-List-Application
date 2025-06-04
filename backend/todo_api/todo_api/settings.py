@@ -111,12 +111,18 @@ import os
 
 import dj_database_url
 
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        #default='postgres://todo_user:todo_password@localhost:54#32/todo_db'
+#    )
+#}
+
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://todo_user:todo_password@localhost:5432/todo_db'
+        default=f"postgres://{os.getenv('DB_USER', 'todo_user')}:{os.getenv('DB_PASSWORD', 'todo_password')}@{os.getenv('DB_HOST', 'db')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME', 'todo_db')}"
     )
 }
-
 
 
 # Password validation
